@@ -1,4 +1,5 @@
 services:
   ai_job_datasets:
+    build: .
     image: <username>/<repository>:v1
     container_name: ai_job_datasets
