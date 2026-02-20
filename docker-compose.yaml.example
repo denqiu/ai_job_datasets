@@ -1,0 +1,4 @@
+services:
+  ai_job_datasets:
+    image: <username>/<repository>:v1
+    container_name: ai_job_datasets
