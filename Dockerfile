@@ -7,9 +7,8 @@ RUN apt-get update && apt-get install -y curl unzip && \
     curl -L -o ./datasets.zip  https://www.kaggle.com/api/v1/datasets/download/bismasajjad/global-ai-job-market-and-salary-trends-2025 && \
     unzip datasets.zip -d datasets && \
     rm datasets.zip
-# import api, read datasets, and export to /app/output referencing synced folder outside docker
 CMD ["python3", "-c","\
     import api_numpy;\
     dataframe = api_numpy.apply_transformations('datasets/ai_job_dataset.csv', 'datasets/ai_job_dataset1.csv');\
-    dataframe.to_csv('/app/output/numpy_ai_job_datasets.csv', index=False);\
+    dataframe.to_csv('numpy_ai_job_datasets.csv', index=False);\
     "]
