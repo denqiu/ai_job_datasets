@@ -1,0 +1,27 @@
+name: Run Transformations
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo to Github Actions runner
+        uses: actions/checkout@v4
+      - name: Build image
+        run: docker compose build
+      - name: Push image to Hub
+        run: docker compose push
+      - name: Run container
+        run: docker compose up
+      - name: Save CSV
+        uses: actions/upload-artifact@v4
+        with:
+          name: numpy_ai_job_datasets
+          path: output/numpy_ai_job_datasets.csv
+          # No need to stress about quickly downloading CSV. If it expires, simply re-run the job. 
+          retention-days: 1
