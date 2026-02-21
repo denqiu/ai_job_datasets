@@ -2,10 +2,13 @@ name: Run Transformations
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"
   # Adds a button to manually select a branch and trigger workflow run.
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   run-docker-and-export:
@@ -14,14 +17,26 @@ jobs:
       DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
       DOCKER_REPO: ${{secrets.DOCKER_REPO}}
       DOCKER_CONTAINER: ${{secrets.DOCKER_CONTAINER}}
+      # Provided automatically by GitHub
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      TAG: ${{github.ref_name}}
     steps:
       - name: Checkout repo to Github Actions runner
         uses: actions/checkout@v4
       - name: Pull image
         run: docker compose pull
       - name: Execute docker commands to run container and export CSV
-        run:  bash run_docker.sh
-      - name: Download CSV
+        run: bash run_docker.sh
+      # How to release: https://dev.to/ayoub3bidi/quick-tutorial-how-to-add-a-release-github-workflow-56ib
+      - name: Release CSV
+        run: |
+          gh release create "$TAG" \
+            --repo="$GITHUB_REPOSITORY" \
+            --title="$TAG" \
+            --generate-notes \
+            numpy_ai_job_datasets.csv
+      - name: Download CSV via Artifact System
+        if: false
         uses: actions/upload-artifact@v4
         with:
           # Artifact will automatically zip file so name should end in zip extension.
