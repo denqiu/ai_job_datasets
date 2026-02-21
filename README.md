@@ -4,7 +4,11 @@
 
 Used Power Query to clean up data. But it was slow so logic was migrated to numpy. Then used Docker to take care of Python environment. Didn't feel like installing the latest version of Python on my computer.
 
-## To run if Python is not installed:
+## Without Docker or Python installed:
+
+Simply go to Actions > job with green checkmark > Artifacts > download csv to Downloads folder. Right+click > save link as > choose folder to download csv to.
+
+## (With Docker) To run if Python is not installed:
 
 1. Install Docker
 2. <code>docker compose up</code>

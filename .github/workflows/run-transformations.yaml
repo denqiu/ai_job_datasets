@@ -24,6 +24,8 @@ jobs:
       - name: Download CSV
         uses: actions/upload-artifact@v4
         with:
+          # Simply clicking on csv in Artifacts will download to Downloads folder.
+          # To specify folder, Right+click > Save link as > choose folder to download to
           name: numpy_ai_job_datasets.csv
           path: output/numpy_ai_job_datasets.csv
           # No need to stress about quickly downloading CSV. If it expires, simply re-run the job. 
