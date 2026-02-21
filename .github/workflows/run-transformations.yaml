@@ -8,7 +8,10 @@ on:
 jobs:
   run-docker-and-export:
     runs-on: ubuntu-latest
-
+    env:
+      DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+      DOCKER_REPO: ${{secrets.DOCKER_REPO}}
+      DOCKER_CONTAINER: ${{secrets.DOCKER_CONTAINER}}
     steps:
       - name: Checkout repo to Github Actions runner
         uses: actions/checkout@v4
