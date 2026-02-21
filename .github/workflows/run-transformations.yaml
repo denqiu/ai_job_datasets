@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  # Adds a button to manually select a branch and trigger workflow run.
+  workflow_dispatch:
 
 jobs:
   run-docker-and-export:
