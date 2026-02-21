@@ -8,7 +8,11 @@ Datasets were curled from Kaggle. Used Power Query to clean up data. But it was 
 
 ### Releases
 
-**With API: <code>curl -L -o numpy_ai_job_datasets.csv https://github.com/denqiu/ai_job_datasets/releases/latest/download/numpy_ai_job_datasets.csv</code>**
+**With API:**
+
+```bash
+curl -L -o numpy_ai_job_datasets.csv https://github.com/denqiu/ai_job_datasets/releases/latest/download/numpy_ai_job_datasets.csv
+```
 
 1. Run <code>create-tag.sh</code> to create and push a new tag.
 2. New workflow is triggered on tag.
