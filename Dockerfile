@@ -11,5 +11,5 @@ RUN apt-get update && apt-get install -y curl unzip && \
 CMD ["python3", "-c","\
     import api_numpy;\
     dataframe = api_numpy.apply_transformations('datasets/ai_job_dataset.csv', 'datasets/ai_job_dataset1.csv');\
-    dataframe.to_csv('/app/output/numpy_ai_job_datasets.csv');\
+    dataframe.to_csv('/app/output/numpy_ai_job_datasets.csv', index=False);\
     "]
