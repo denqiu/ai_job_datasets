@@ -28,8 +28,11 @@ jobs:
         # --remove-orphans remove previous versions of the same container.
         # Wait for container to exit so that it fully completes csv export.
         run: |
-          docker compose up -d --remove-orphans
-          docker wait ${DOCKER_CONTAINER}
+          docker compose up --remove-orphans
+          #docker compose up -d --remove-orphans
+          #docker wait ${DOCKER_CONTAINER}
+      - name: Copy CSV from container
+        run: docker cp ${DOCKER_CONTAINER}:/app/output/numpy_ai_job_datasets.csv ./output/numpy_ai_job_datasets.csv
       - name: Download CSV
         uses: actions/upload-artifact@v4
         with:

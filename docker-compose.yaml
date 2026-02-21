@@ -4,8 +4,9 @@ services:
     build: .
     image: ${DOCKER_USERNAME}/${DOCKER_REPO}
     container_name: ${DOCKER_CONTAINER}
-    volumes:
+# Replaced bind mount with docker cp.
+#    volumes:
       # This is a bind mount, not a named volume.
       # '.' links to docker-compose.yaml's folder.
       # Create and sync 2 folders named "output" inside and outside container.
-      - ./output:/app/output
+#      - ./output:/app/output
