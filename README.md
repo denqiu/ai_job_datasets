@@ -4,6 +4,8 @@
 
 Datasets were curled from Kaggle. Used Power Query to clean up data. But it was slow so logic was migrated to numpy. Then used Docker to take care of Python environment. Didn't feel like installing the latest version of Python on my computer.
 
+See files in Wiki.
+
 ## Without Docker or Python installed:
 
 ### Releases
