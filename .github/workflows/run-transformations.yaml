@@ -19,8 +19,13 @@ jobs:
         run: docker image prune -f
       - name: Pull image
         run: docker compose pull
-      - name: Run container and remove previous versions of the same container
-        run: docker compose up --remove-orphans
+      - name: Run container
+        # -d Run container in the background.
+        # --remove-orphans remove previous versions of the same container.
+        # Wait for container to exit so that it fully completes csv export.
+        run: |
+          docker compose up -d --remove-orphans
+          docker wait ${DOCKER_CONTAINER}
       - name: Download CSV
         uses: actions/upload-artifact@v4
         with:
