@@ -40,6 +40,11 @@ docker build -t username/repository:v2
 docker push username/repository:v2
 </pre>
 
+## Clean Up Containers and Images
+
+* Remove dangling images (with <code>none</code> tag): <code>docker image prune</code>
+* Remove previous versions of the same container: <code>docker compose up --remove-orphans</code>
+
 ## Manage Multiple Containers with Docker Compose
 
 **Each service manages a container.**

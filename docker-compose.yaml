@@ -1,6 +1,6 @@
 # docker-compose automatically read variables from .env, no need to configure
 services:
-  ${DOCKER_CONTAINER}:
+  transformation:
     build: .
     image: ${DOCKER_USERNAME}/${DOCKER_REPO}
     container_name: ${DOCKER_CONTAINER}

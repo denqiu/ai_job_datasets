@@ -18,7 +18,7 @@ jobs:
         run: docker compose push
       - name: Run container
         run: docker compose up
-      - name: Save CSV
+      - name: Download CSV
         uses: actions/upload-artifact@v4
         with:
           name: numpy_ai_job_datasets
