@@ -6,6 +6,8 @@ Datasets were curled from Kaggle. Used Power Query to clean up data. But it was 
 
 ## Without Docker or Python installed:
 
+**Issue: [Artifact Download Not Working](https://github.com/denqiu/ai_job_datasets/issues/6)**
+
 There are 2 ways to do this:
 
 1. Recently added workflow_dispatch. Go to Actions > Run Workflow > Select branch > Run Workflow.
