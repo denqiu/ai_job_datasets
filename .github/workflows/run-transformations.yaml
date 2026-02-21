@@ -15,14 +15,12 @@ jobs:
     steps:
       - name: Checkout repo to Github Actions runner
         uses: actions/checkout@v4
+      - name: Remove dangling images
+        run: docker image prune -f
       - name: Pull image
         run: docker compose pull
-      - name: Build image
-        run: docker compose build
-      - name: Push image to Hub
-        run: docker compose push
-      - name: Run container
-        run: docker compose up
+      - name: Run container and remove previous versions of the same container
+        run: docker compose up --remove-orphans
       - name: Download CSV
         uses: actions/upload-artifact@v4
         with:

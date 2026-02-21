@@ -5,10 +5,14 @@
 <code>docker build -t username/repository:v1</code>
 
 ## Push Changes to Hub
- .
+
+**Requires login access**
+
 <code>docker push username/repository:v1</code>
 
 ## Pull Changes from Hub
+
+**Doesn't require login access**
 
 * Latest Change: <code>docker pull username/repository</code>
 * Specific Change: <code>docker pull username/repository:v1</code>
@@ -28,12 +32,16 @@
 
 ## Push New Changes to Latest Version
 
+**Require login access**
+
 <pre>
 docker build -t username/repository
 docker push username/repository
 </pre>
 
 ## Push New Changes to Specific Version
+
+**Require login access**
 
 <pre>
 docker build -t username/repository:v2
@@ -52,8 +60,8 @@ docker push username/repository:v2
 * Build new image aka push new change: <code>docker compose build</code>
 * Create all containers: <code>docker compose up</code>
 * Rebuild image and create/start all containers: <code>docker compose up --build</code>
-* Push all images: <code>docker compose push</code>
-* Push all images from specific service: <code>docker compose push service</code>
+* **Require login access** Push all images: <code>docker compose push</code>
+* **Require login access** Push all images from specific service: <code>docker compose push service</code>
 * Pull all images: <code>docker compose pull</code>
 * Pull all images from specific service: <code>docker compose pull service</code>
 * Removes all containers, volumes, and images: <code>docker compose down -v --rmi all</code>
