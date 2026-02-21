@@ -62,6 +62,7 @@ def apply_transformations(ai_job_dataset, ai_job_dataset1):
     # Renamed columns
     dataframe = dataframe.rename(columns={
         "benefits_score": "benefits_ranking",
+        "employee_residence": "employee_location",
         "remote_ratio": "workplace_type",
         "application_deadline": "posting_deadline"
     })
