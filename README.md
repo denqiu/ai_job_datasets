@@ -2,7 +2,7 @@
 
 **Project assignment for Module 6 in course CTI-110 at Wake Tech (WTCC).**
 
-Used Power Query to clean up data. But it was slow so logic was migrated to numpy. Then used Docker to take care of Python environment. Didn't feel like installing the latest version of Python on my computer.
+Datasets were curled from Kaggle. Used Power Query to clean up data. But it was slow so logic was migrated to numpy. Then used Docker to take care of Python environment. Didn't feel like installing the latest version of Python on my computer.
 
 ## Without Docker or Python installed:
 
