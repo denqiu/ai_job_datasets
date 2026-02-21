@@ -30,7 +30,7 @@ jobs:
         with:
           # Simply clicking on file in Artifacts will download to Downloads folder.
           # To specify folder, Right+click > Save link as > choose folder to download to
-          name: numpy_ai_job_datasets
+          name: numpy_ai_job_datasets.zip
           path: numpy_ai_job_datasets.zip
           # No need to stress about quickly downloading file. If it expires, simply re-run the job. 
           retention-days: 1
