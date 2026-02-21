@@ -4,7 +4,7 @@ services:
     build: .
     image: ${DOCKER_USERNAME}/${DOCKER_REPO}
     container_name: ${DOCKER_CONTAINER}
-# Replaced bind mount with docker cp.
+# Replaced bind mount with docker cp. See run_docker.sh.
 #    volumes:
       # This is a bind mount, not a named volume.
       # '.' links to docker-compose.yaml's folder.

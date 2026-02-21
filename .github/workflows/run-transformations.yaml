@@ -17,28 +17,16 @@ jobs:
     steps:
       - name: Checkout repo to Github Actions runner
         uses: actions/checkout@v4
-      - name: Remove dangling images
-        run: docker image prune -f
-      - name: Create output folder
-        run: mkdir -p output
       - name: Pull image
         run: docker compose pull
-      - name: Run container
-        # -d Run container in the background.
-        # --remove-orphans remove previous versions of the same container.
-        # Wait for container to exit so that it fully completes csv export.
-        run: |
-          docker compose up --remove-orphans
-          #docker compose up -d --remove-orphans
-          #docker wait ${DOCKER_CONTAINER}
-      - name: Copy CSV from container
-        run: docker cp ${DOCKER_CONTAINER}:/app/output/numpy_ai_job_datasets.csv ./output/numpy_ai_job_datasets.csv
+      - name: Execute docker commands to run container and export CSV
+        run: ./run_docker.sh
       - name: Download CSV
         uses: actions/upload-artifact@v4
         with:
           # Simply clicking on csv in Artifacts will download to Downloads folder.
           # To specify folder, Right+click > Save link as > choose folder to download to
           name: numpy_ai_job_datasets.csv
-          path: output/numpy_ai_job_datasets.csv
+          path: numpy_ai_job_datasets.csv
           # No need to stress about quickly downloading CSV. If it expires, simply re-run the job. 
           retention-days: 1
