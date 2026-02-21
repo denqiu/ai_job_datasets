@@ -23,12 +23,14 @@ jobs:
         run:  bash run_docker.sh
       - name: Check CSV
         run: ls -lh numpy_ai_job_datasets.csv
-      - name: Download CSV
+      - name: Zip CSV
+        run: zip numpy_ai_job_datasets.zip numpy_ai_job_datasets.csv
+      - name: Download Zip
         uses: actions/upload-artifact@v4
         with:
-          # Simply clicking on csv in Artifacts will download to Downloads folder.
+          # Simply clicking on file in Artifacts will download to Downloads folder.
           # To specify folder, Right+click > Save link as > choose folder to download to
-          name: numpy_ai_job_datasets.csv
-          path: numpy_ai_job_datasets.csv
-          # No need to stress about quickly downloading CSV. If it expires, simply re-run the job. 
+          name: numpy_ai_job_datasets
+          path: numpy_ai_job_datasets.zip
+          # No need to stress about quickly downloading file. If it expires, simply re-run the job. 
           retention-days: 1
