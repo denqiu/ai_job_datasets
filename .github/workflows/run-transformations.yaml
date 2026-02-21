@@ -28,9 +28,8 @@ jobs:
         # --remove-orphans remove previous versions of the same container.
         # Wait for container to exit so that it fully completes csv export.
         run: |
-          docker compose up --remove-orphans
-          #docker compose up -d --remove-orphans
-          #docker wait ${DOCKER_CONTAINER}
+          docker compose up -d --remove-orphans
+          docker wait ${DOCKER_CONTAINER}
       - name: Download CSV
         uses: actions/upload-artifact@v4
         with:
