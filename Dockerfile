@@ -10,8 +10,6 @@ RUN apt-get update && apt-get install -y curl unzip && \
 # import api, read datasets, and export to /app/output referencing synced folder outside docker
 CMD ["python3", "-c","\
     import api_numpy;\
-    import os;\
-    os.makedirs("output", exist_ok=True);\
     dataframe = api_numpy.apply_transformations('datasets/ai_job_dataset.csv', 'datasets/ai_job_dataset1.csv');\
     dataframe.to_csv('/app/output/numpy_ai_job_datasets.csv', index=False);\
     "]
