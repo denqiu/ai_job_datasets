@@ -6,6 +6,14 @@ Datasets were curled from Kaggle. Used Power Query to clean up data. But it was 
 
 ## Without Docker or Python installed:
 
+### Releases
+
+1. Run <code>create-tag.sh</code> to create and push a new tag.
+2. New workflow is triggered on tag.
+3. Download release.
+
+### Artifacts
+
 **Issue (Resolved): [Artifact Download Not Working](https://github.com/denqiu/ai_job_datasets/issues/6)**
 
 There are 2 ways to do this:
