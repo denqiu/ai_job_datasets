@@ -6,7 +6,7 @@ Datasets were curled from Kaggle. Used Power Query to clean up data. But it was 
 
 ## Without Docker or Python installed:
 
-Simply go to Actions > job with green checkmark > Artifacts > download csv to Downloads folder. Right+click > save link as > choose folder to download csv to.
+Simply go to Actions > job with green checkmark > Summary > Artifacts > download csv to Downloads folder. Right+click > save link as > choose folder to download csv to.
 
 ## (With Docker) To run if Python is not installed:
 
