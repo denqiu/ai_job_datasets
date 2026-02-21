@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repo to Github Actions runner
         uses: actions/checkout@v4
+      - name: Pull image
+        run: docker compose pull
       - name: Build image
         run: docker compose build
       - name: Push image to Hub
