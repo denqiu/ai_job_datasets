@@ -20,7 +20,7 @@ jobs:
       - name: Pull image
         run: docker compose pull
       - name: Execute docker commands to run container and export CSV
-        run: ./run_docker.sh
+        run:  bash run_docker.sh
       - name: Download CSV
         uses: actions/upload-artifact@v4
         with:
