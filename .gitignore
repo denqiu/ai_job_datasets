@@ -1,2 +1,3 @@
-docker-compose.yaml
-numpy_ai_job_datasets.csv
+.env
+/output
+/__pycache__
