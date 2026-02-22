@@ -13,7 +13,11 @@ See files in Wiki.
 **With API:**
 
 ```bash
-curl -L -o numpy_ai_job_datasets.csv https://github.com/denqiu/ai_job_datasets/releases/latest/download/numpy_ai_job_datasets.csv
+curl -LO $(curl -Ls \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/denqiu/ai_job_datasets/releases/latest | \
+  grep browser_download_url | grep -o https.*numpy_ai_job_datasets_v.*.csv)
 ```
 
 1. Run <code>create-tag.sh</code> to create and push a new tag.
